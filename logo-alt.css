@@ -1,0 +1,215 @@
+:root {
+    --nav-height: 50px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+     font-family: "Ubuntu", sans-serif;
+     font-weight: 450;
+     font-style: normal;
+    color: #000000;
+    background-color: rgb(200, 75, 255);
+}
+ .navbar {
+    position: sticky;
+    top: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    height: var(--nav-height);
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+}
+.navbar .links {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+
+    width: calc(100% - 120px);
+    overflow-x: auto;
+
+    float: right;
+
+    white-space: nowrap;
+
+    font-weight: lighter;
+}
+
+@media screen and (max-width: 768px) {
+    .navbar > .links {
+        flex-flow: column nowrap;
+        justify-content: flex-start;
+        white-space: nowrap;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        right: 0;
+        gap: 0;
+        height: var(--nav-height);
+        overflow-y: scroll;
+        flex-wrap: nowrap;
+        align-items: flex-end;
+    }
+
+    .links > span, .links::before {
+            min-height: var(--nav-height);
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            margin-right: 10px;
+    }
+
+    .links::before {
+        content: "Links (scroll)";
+        font-weight: bold;
+    }
+}
+
+
+.navbar a {
+    color: white;
+    text-decoration: underline;
+    margin: 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+ }
+
+#logo {
+    box-sizing: border-box !important;
+    position: fixed;
+    top: 0;
+    right: 10px;
+
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+
+    width: 120px;
+    z-index: 9999;
+    border-radius: 20px;
+    border: 10px solid #333333;
+    border-top: none;
+    margin-top: 10px;
+    background-color: #333333;
+
+    transition: height 1.3s;
+
+    font-size: 0.8em;
+}
+
+
+#logo:hover {
+    height: calc(110px + 2lh + 5px);
+}
+
+#logo:not(:hover) {
+    height: calc(var(--nav-height) - 10px);
+}
+
+#logo-pic {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    transition: opacity 1.3s, height 1.3s;
+    background-color: #333333;
+    border: 1px solid white;
+    border-radius: 10px;
+}
+
+
+#logo-pic > #logo-pic-img {
+    height: calc(100% - 2lh - 5px);
+    width: 100%;
+    border-radius: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: opacity 1.3s, height 1.3s;
+}
+
+#logo-pic > #logo-pic-capt {
+    position: absolute;
+    bottom: 2px;
+    left: 0;
+    margin-bottom: 2px;
+    width: 100%;
+    text-align: center;
+    color: white;
+}
+
+#logo:not(:hover)> #logo-pic { opacity: 0; }
+
+#logo-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    transition: height 1.3s;
+    font-size: 1rem;
+}
+
+#logo-text > #logo-text-content {
+    background-image: linear-gradient(to bottom, #6666FF, rgb(200, 75, 255));
+    background-color: transparent;
+    text-align: center;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: #FFFFFF;
+    height: 100%;
+    border-radius: 10px;
+    border: 1px solid;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    transition: none;
+}
+
+/*
+#logo:hover > #logo-text { height: 100%; }
+#logo:hover > #logo-text > #logo-text-content { opacity: 1;background-image: linear-gradient(to bottom, transparent, transparent);  } */
+
+
+
+.top-offset {
+    text-align: center;
+}
+
+.top-offset > h1 {
+    font-size: 2em;
+}
+
+#logo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-top: unset;
+}
+
+.navbar > .logo {
+    font-size: 0;
+}
